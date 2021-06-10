@@ -49,4 +49,23 @@ function calculateOutstanding(invoice) {
       result += o.amount;
     }
     return result;
-  }
+}
+
+
+function reportLine(aCustomer) {
+  const lines = [];
+  lines.push(["name", aCustomer.name]);
+  lines.push(["location", aCustomer.location]);
+  return lines;
+}
+
+function price(order) {
+  // 가격(price) = 기본가격 - 수량 할인 + 배송비;
+  const basePrice = order.quentity * order.itemPrice; 
+  const quantityDiscount = Math.max(0, order.quantity - 500)* order.itemPrice * 0.05 
+  const shipping  =   Math.min(order.quantity * order.itemPrice * 0.1, 100);
+  
+  return basePrice - quantityDiscount + shipping;
+}
+
+
