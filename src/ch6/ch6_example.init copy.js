@@ -68,4 +68,27 @@ function price(order) {
   return basePrice - quantityDiscount + shipping;
 }
 
+function circum(radius) {
+  return circumference(radius);
+}
 
+function circumference(radius) {
+  return 2 * Math.PI * radius;
+}
+
+class Book {
+  constructor(arg) {
+    this._reservations = arg.reservations;
+  }
+
+  addReservation(customer, isPriority) {
+    console.log((isPriority === true || isPriority === false) && "실행중")
+    this._reservations.push(customer);
+  }
+}
+
+function inNewEngland(stateCode) {
+  return["MA", "CT", "ME", "VT", "NH", "RI"].includes(stateCode);
+}
+
+const newEngland = someCustomers.filter((c) => inNewEngland(c.address.state));

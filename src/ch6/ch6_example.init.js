@@ -69,3 +69,27 @@ class Order {
     return Math.min(this.quantity * this.itemPrice * 0.1, 100);
   }
 }
+
+function circum(radius) {
+  return 2 * Math.PI * radius;
+}
+
+function circumference(radius) {
+  return 2 * Math.PI * radius;
+}
+
+class Book {
+  constructor(arg) {
+    this._reservations = arg.reservations;
+  }
+
+  addReservation(customer) {
+    this._reservations.push(customer);
+  }
+}
+
+function inNewEngland(aCustomer) {
+  return ["MA", "CT", "ME", "VT", "NH", "RI"].includes(aCustomer.address.state);
+}
+
+const newEngland = someCustomers.filter((c) => inNewEngland(c));
